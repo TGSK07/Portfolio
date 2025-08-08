@@ -3,97 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonu Kumar</title>
+    <title>Sonu Kumar - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base styles */
         body {
             font-family: 'Inter', sans-serif;
-            transition: background-color 0.5s, color 0.5s;
-        }
-        .font-serif {
-            font-family: 'Playfair Display', serif;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         /* Gradient Text */
         .gradient-text {
-            background: linear-gradient(to right, #fde047, #fbbf24); /* yellow-300 to amber-400 */
+            background: linear-gradient(to right, #0d9488, #14b8a6); /* teal-600 to teal-500 */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         /* Light mode styles */
         body {
-            background-color: #fefce8; /* yellow-50 */
-            color: #422006; /* amber-950 */
+            background-color: #f1f5f9; /* slate-100 */
+            color: #334155; /* slate-700 */
         }
-        .header-bg { background-color: rgba(254, 252, 232, 0.8); }
-        .card { background-color: #fef9c3; border: 1px solid #fde68a; transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s; } /* yellow-100, yellow-300 */
-        .card:hover { box-shadow: 0 10px 20px -5px rgba(180, 83, 9, 0.1); transform: translateY(-5px); }
-        .card-footer { background-color: #fefce8; } /* yellow-50 */
-        .footer-bg { background-color: #fef9c3; } /* yellow-100 */
-        .text-main { color: #78350f; } /* amber-800 */
-        .text-secondary { color: #92400e; } /* amber-700 */
-        .nav-link { color: #78350f; } /* amber-800 */
-        .nav-link:hover { color: #b45309; } /* amber-600 */
-        .mobile-menu-bg { background-color: #fef9c3; }
-        .mobile-link:hover { background-color: #fefce8; }
+        .header-bg { background-color: rgba(241, 245, 249, 0.8); }
+        .card { background-color: #ffffff; border: 1px solid #e2e8f0; transition: transform 0.3s, opacity 0.3s; } /* white, slate-200 */
+        .card:hover { box-shadow: 0 10px 15px -3px rgba(20, 184, 166, 0.07), 0 4px 6px -2px rgba(20, 184, 166, 0.05); }
+        .card-footer { background-color: #f8fafc; } /* slate-50 */
+        .footer-bg { background-color: #e2e8f0; } /* slate-200 */
+        .text-main { color: #1e293b; } /* slate-800 */
+        .text-secondary { color: #475569; } /* slate-600 */
+        .nav-link { color: #334155; } /* slate-700 */
+        .nav-link:hover { color: #0d9488; } /* teal-600 */
+        .mobile-menu-bg { background-color: #ffffff; }
+        .mobile-link:hover { background-color: #f1f5f9; }
         .contact-button { 
-            background-image: linear-gradient(to right, #f59e0b, #d97706);
+            background-image: linear-gradient(to right, #14b8a6, #0d9488);
             color: #ffffff; 
         }
         .contact-button:hover { 
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+            background-image: linear-gradient(to right, #0d9488, #14b8a6);
         }
         .filter-btn {
-            background-color: #fef9c3;
-            color: #92400e;
-            border: 1px solid #fde68a;
+            background-color: #e2e8f0;
+            color: #475569;
+            border: 1px solid transparent;
         }
         .filter-btn.active {
-            background-image: linear-gradient(to right, #f59e0b, #d97706);
+            background-image: linear-gradient(to right, #14b8a6, #0d9488);
             color: #ffffff;
             border-color: transparent;
         }
 
         /* Dark mode styles */
         .dark body {
-            background-color: #1e1b4b; /* indigo-950 */
-            color: #a5b4fc; /* indigo-300 */
+            background-color: #0f172a; /* slate-900 */
+            color: #94a3b8; /* slate-400 */
         }
-        .dark .header-bg { background-color: rgba(30, 27, 75, 0.8); }
-        .dark .card { background-color: #312e81; border: 1px solid #4338ca; } /* indigo-900, indigo-700 */
-        .dark .card:hover { box-shadow: 0 10px 20px -5px rgba(251, 191, 36, 0.1); transform: translateY(-5px); }
-        .dark .card-footer { background-color: #4338ca; } /* indigo-700 */
-        .dark .footer-bg { background-color: #17143a; } /* Deeper indigo */
-        .dark .text-main { color: #e0e7ff; } /* indigo-200 */
-        .dark .text-secondary { color: #c7d2fe; } /* indigo-300 */
-        .dark .nav-link { color: #e0e7ff; } /* indigo-200 */
-        .dark .nav-link:hover { color: #fde047; } /* yellow-300 */
-        .dark .mobile-menu-bg { background-color: #312e81; }
-        .dark .mobile-link:hover { background-color: #4338ca; }
+        .dark .header-bg { background-color: rgba(15, 23, 42, 0.8); }
+        .dark .card { background-color: #1e293b; border: 1px solid #334155; } /* slate-800, slate-700 */
+        .dark .card:hover { box-shadow: 0 10px 15px -3px rgba(45, 212, 191, 0.1), 0 4px 6px -2px rgba(45, 212, 191, 0.05); }
+        .dark .card-footer { background-color: #334155; } /* slate-700 */
+        .dark .footer-bg { background-color: #020617; } /* slate-950 */
+        .dark .text-main { color: #f1f5f9; } /* slate-100 */
+        .dark .text-secondary { color: #94a3b8; } /* slate-400 */
+        .dark .nav-link { color: #cbd5e1; } /* slate-300 */
+        .dark .nav-link:hover { color: #5eead4; } /* teal-300 */
+        .dark .mobile-menu-bg { background-color: #1e293b; }
+        .dark .mobile-link:hover { background-color: #334155; }
         .dark .gradient-text {
-             background: linear-gradient(to right, #fde047, #fbbf24); /* yellow-300 to amber-400 */
+             background: linear-gradient(to right, #2dd4bf, #5eead4); /* teal-400 to teal-300 */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .dark .contact-button { 
-            background-image: linear-gradient(to right, #fde047, #fbbf24);
+            background-image: linear-gradient(to right, #2dd4bf, #5eead4);
             color: #1e293b;
         }
         .dark .contact-button:hover {
-            box-shadow: 0 0 15px rgba(253, 224, 71, 0.5);
+            background-image: linear-gradient(to right, #5eead4, #2dd4bf);
         }
         .dark .filter-btn {
             background-color: transparent;
-            color: #c7d2fe;
-            border: 1px solid #4338ca;
+            color: #94a3b8;
+            border: 1px solid #334155;
         }
         .dark .filter-btn.active {
-            background-image: linear-gradient(to right, #fde047, #fbbf24);
-            color: #1e1b4b;
+            background-image: linear-gradient(to right, #2dd4bf, #5eead4);
+            color: #0f172a;
             border-color: transparent;
         }
 
@@ -102,14 +99,14 @@
 <body class="antialiased">
 
     <!-- Header -->
-    <header class="p-4 md:p-6 sticky top-0 z-50 header-bg backdrop-blur-md border-b border-amber-200/20 dark:border-indigo-700/50">
+    <header class="p-4 md:p-6 sticky top-0 z-50 header-bg backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold font-serif gradient-text">TGSK</h1>
+            <h1 class="text-2xl font-bold gradient-text">Sonu Kumar</h1>
             <nav class="hidden md:flex space-x-8 items-center">
-                <a href="#about" class="nav-link transition-colors font-medium">The Architect</a>
-                <a href="#skills" class="nav-link transition-colors font-medium">The Forge</a>
-                <a href="#projects" class="nav-link transition-colors font-medium">Creations</a>
-                <a href="#contact" class="nav-link transition-colors font-medium">Seek Audience</a>
+                <a href="#about" class="nav-link transition-colors font-medium">About</a>
+                <a href="#skills" class="nav-link transition-colors font-medium">Skills</a>
+                <a href="#projects" class="nav-link transition-colors font-medium">Projects</a>
+                <a href="#contact" class="nav-link transition-colors font-medium">Contact</a>
                 <button id="theme-toggle" class="text-xl nav-link transition-colors">
                     <i class="fas fa-sun"></i>
                 </button>
@@ -124,10 +121,10 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden mt-4 mobile-menu-bg rounded-lg shadow-lg">
-             <a href="#about" class="mobile-link block py-2 px-4 text-sm rounded-t-lg">The Architect</a>
-             <a href="#skills" class="mobile-link block py-2 px-4 text-sm">The Forge</a>
-             <a href="#projects" class="mobile-link block py-2 px-4 text-sm">Creations</a>
-             <a href="#contact" class="mobile-link block py-2 px-4 text-sm rounded-b-lg">Seek Audience</a>
+             <a href="#about" class="mobile-link block py-2 px-4 text-sm rounded-t-lg">About</a>
+             <a href="#skills" class="mobile-link block py-2 px-4 text-sm">Skills</a>
+             <a href="#projects" class="mobile-link block py-2 px-4 text-sm">Projects</a>
+             <a href="#contact" class="mobile-link block py-2 px-4 text-sm rounded-b-lg">Contact</a>
         </div>
     </header>
 
@@ -135,34 +132,34 @@
 
         <!-- Hero Section -->
         <section class="text-center my-16 md:my-24">
-            <h2 class="text-4xl md:text-6xl font-serif font-bold leading-tight text-main">
-                Architect of Digital Realms
+            <h2 class="text-4xl md:text-6xl font-extrabold leading-tight text-main">
+                Backend Developer & <span class="gradient-text">Data Scientist</span>
             </h2>
             <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-secondary">
-                Forging logic and lore into tangible experiences with <span class="gradient-text font-semibold">code and data</span>.
+                A passionate B.Tech student with a knack for building robust backend systems and uncovering insights from data.
             </p>
             <div class="mt-8 flex justify-center space-x-6">
-                <a href="https://github.com/tgsK07/" target="_blank" class="text-3xl text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/tgsk/" target="_blank" class="text-3xl text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:tgsonukumar07@gmail.com" class="text-3xl text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/tgsK07/" target="_blank" class="text-3xl text-secondary hover:text-teal-600 dark:hover:text-teal-400 transition-colors"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/tgsk/" target="_blank" class="text-3xl text-secondary hover:text-teal-600 dark:hover:text-teal-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:tgsonukumar07@gmail.com" class="text-3xl text-secondary hover:text-teal-600 dark:hover:text-teal-400 transition-colors"><i class="fas fa-envelope"></i></a>
             </div>
         </section>
 
         <!-- About Me -->
         <section id="about" class="my-16 md:my-24">
-            <h3 class="text-3xl font-serif font-bold text-center mb-8 gradient-text">The Architect</h3>
+            <h3 class="text-3xl font-bold text-center mb-8 gradient-text">About Me</h3>
             <div class="max-w-4xl mx-auto text-center text-secondary leading-relaxed">
-                <p>As a student of Computer Science, I walk the line between two worlds: the structured logic of backend development and the boundless narrative of data science. My quest is to build robust, scalable systems and to distill meaning from the digital ether. From the crucible of hackathons to the quiet contemplation of complex algorithms, I seek to turn abstract concepts into impactful realities.</p>
+                <p>I am a B.Tech CSE (Data Science) student skilled in Python, Java, and SQL, with hands-on experience in both backend development and data science. I've built full-stack applications with Django, created AI-powered tools with Streamlit, and conducted in-depth data analysis to drive insights. I'm a finalist at the Innovation Hackathon by Ramjas College, DU, and have solved over 230 problems on LeetCode. I am actively seeking roles where I can apply my skills to solve real-world problems and contribute to a tech-driven team.</p>
             </div>
         </section>
 
         <!-- Skills Section -->
         <section id="skills" class="my-16 md:my-24">
-            <h3 class="text-3xl font-serif font-bold text-center mb-12 gradient-text">The Forge of Skills</h3>
+            <h3 class="text-3xl font-bold text-center mb-12 gradient-text">Technical Skills</h3>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
                 <!-- Skill Card -->
                 <div class="card p-6 rounded-lg text-center">
-                    <i class="fab fa-python text-4xl text-amber-400 mb-3"></i>
+                    <i class="fab fa-python text-4xl text-teal-500 mb-3"></i>
                     <h4 class="font-semibold text-lg text-main">Python</h4>
                 </div>
                 <div class="card p-6 rounded-lg text-center">
@@ -214,10 +211,10 @@
 
         <!-- Projects Section -->
         <section id="projects" class="my-16 md:my-24">
-            <h3 class="text-3xl font-serif font-bold text-center mb-8 gradient-text">A Gallery of Creations</h3>
+            <h3 class="text-3xl font-bold text-center mb-8 gradient-text">Projects</h3>
             <!-- Filter Buttons -->
             <div id="project-filters" class="flex justify-center flex-wrap gap-2 md:gap-4 mb-12">
-                <button class="filter-btn active px-4 py-2 text-sm font-semibold rounded-full transition-colors" data-filter="all">All Creations</button>
+                <button class="filter-btn active px-4 py-2 text-sm font-semibold rounded-full transition-colors" data-filter="all">All</button>
                 <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full transition-colors" data-filter="development">Development</button>
                 <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full transition-colors" data-filter="data-science">Data Science</button>
                 <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full transition-colors" data-filter="ml">Machine Learning</button>
@@ -230,13 +227,13 @@
                         <h4 class="font-bold text-xl mb-2 text-main">TourPass - Ticketing System</h4>
                         <p class="text-secondary text-sm mb-4">A full-stack museum ticket booking system with secure user authentication, booking management, and payment gateway integration.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Django</span>
+                            <span class="bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Django</span>
                             <span class="bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">PostgreSQL</span>
                             <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Bootstrap</span>
                         </div>
                     </div>
                     <div class="p-6 card-footer flex justify-end space-x-4">
-                        <a href="https://github.com/tgsK07/TourPass" target="_blank" class="text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fab fa-github text-xl"></i></a>
+                        <a href="https://github.com/tgsK07/TourPass" target="_blank" class="text-secondary hover:text-teal-600 dark:hover:text-teal-400 transition-colors"><i class="fab fa-github text-xl"></i></a>
                     </div>
                 </div>
                 <!-- Project Card 2 -->
@@ -246,13 +243,13 @@
                         <p class="text-secondary text-sm mb-4">A Streamlit web app for AI-powered resume analysis using Google's Generative AI, providing matching probability, skill analysis, and optimization tips.</p>
                          <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Streamlit</span>
-                            <span class="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Python</span>
+                            <span class="bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Python</span>
                              <span class="bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Gemma</span>
                         </div>
                     </div>
                     <div class="p-6 card-footer flex justify-end space-x-4">
-                        <a href="https://github.com/tgsK07/AI-Resume-Analyzer" target="_blank" class="text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fab fa-github text-xl"></i></a>
-                        <a href="https://huggingface.co/spaces/Sonu-Kumar/AI-Resume-Analyzer" target="_blank" class="text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fas fa-external-link-alt text-xl"></i></a>
+                        <a href="https://github.com/tgsK07/AI-Resume-Analyzer" target="_blank" class="text-secondary hover:text-teal-600 dark:hover:text-teal-400 transition-colors"><i class="fab fa-github text-xl"></i></a>
+                        <a href="https://huggingface.co/spaces/Sonu-Kumar/AI-Resume-Analyzer" target="_blank" class="text-secondary hover:text-teal-600 dark:hover:text-teal-400 transition-colors"><i class="fas fa-external-link-alt text-xl"></i></a>
                     </div>
                 </div>
                 <!-- Project Card 3 -->
@@ -282,7 +279,7 @@
                         </div>
                     </div>
                     <div class="p-6 card-footer flex justify-end space-x-4">
-                        <a href="https://github.com/tgsK07/Carbon-Emission-Impact-Analysis" target="_blank" class="text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fab fa-github text-xl"></i></a>
+                        <a href="https://github.com/tgsK07/Carbon-Emission-Impact-Analysis" target="_blank" class="text-secondary hover:text-teal-600 dark:hover:text-teal-400 transition-colors"><i class="fab fa-github text-xl"></i></a>
                     </div>
                 </div>
             </div>
@@ -290,10 +287,10 @@
 
         <!-- Contact Section -->
         <section id="contact" class="my-16 md:my-24 text-center">
-             <h3 class="text-3xl font-serif font-bold text-center mb-8 gradient-text">Seek Audience</h3>
-             <p class="text-secondary mb-8 max-w-2xl mx-auto">If you have a quest, a query, or wish to collaborate on a future legend, send a missive.</p>
+             <h3 class="text-3xl font-bold text-center mb-8 gradient-text">Get In Touch</h3>
+             <p class="text-secondary mb-8 max-w-2xl mx-auto">I'm currently looking for new opportunities. If you have a project in mind or just want to say hello, feel free to reach out!</p>
              <a href="mailto:tgsonukumar07@gmail.com" class="contact-button font-bold py-3 px-8 rounded-full transition-all duration-300">
-                Send a Message
+                Contact Me
              </a>
         </section>
 
@@ -301,7 +298,7 @@
 
     <!-- Footer -->
     <footer class="text-center p-6 footer-bg">
-        <p class="text-secondary text-sm">&copy; MMDXXIV Sonu Kumar. All Rights Reserved.</p>
+        <p class="text-secondary text-sm">&copy; 2024 Sonu Kumar. All Rights Reserved.</p>
     </footer>
 
     <script>
