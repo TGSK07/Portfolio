@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonu Kumar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="p-4 md:p-6 sticky top-0 z-50 header-bg backdrop-blur-md border-b border-amber-200/20 dark:border-indigo-700/50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold font-serif gradient-text">TGSK</h1>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="nav-link transition-colors font-medium">The Architect</a>
+                <a href="#skills" class="nav-link transition-colors font-medium">The Forge</a>
+                <a href="#projects" class="nav-link transition-colors font-medium">Creations</a>
+                <a href="#contact" class="nav-link transition-colors font-medium">Seek Audience</a>
+                <button id="theme-toggle" class="text-xl nav-link transition-colors">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </nav>
+            <div class="md:hidden flex items-center space-x-4">
+                <button id="theme-toggle-mobile" class="text-xl nav-link transition-colors">
+                     <i class="fas fa-sun"></i>
+                </button>
+                <button id="mobile-menu-button" class="text-2xl nav-link">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden mt-4 mobile-menu-bg rounded-lg shadow-lg">
+             <a href="#about" class="mobile-link block py-2 px-4 text-sm rounded-t-lg">The Architect</a>
+             <a href="#skills" class="mobile-link block py-2 px-4 text-sm">The Forge</a>
+             <a href="#projects" class="mobile-link block py-2 px-4 text-sm">Creations</a>
+             <a href="#contact" class="mobile-link block py-2 px-4 text-sm rounded-b-lg">Seek Audience</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-6">
+
+        <!-- Hero Section -->
+        <section class="text-center my-16 md:my-24">
+            <h2 class="text-4xl md:text-6xl font-serif font-bold leading-tight text-main">
+                Architect of Digital Realms
+            </h2>
+            <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-secondary">
+                Forging logic and lore into tangible experiences with <span class="gradient-text font-semibold">code and data</span>.
+            </p>
+            <div class="mt-8 flex justify-center space-x-6">
+                <a href="https://github.com/tgsK07/" target="_blank" class="text-3xl text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/tgsk/" target="_blank" class="text-3xl text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:tgsonukumar07@gmail.com" class="text-3xl text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+
+        <!-- About Me -->
+        <section id="about" class="my-16 md:my-24">
+            <h3 class="text-3xl font-serif font-bold text-center mb-8 gradient-text">The Architect</h3>
+            <div class="max-w-4xl mx-auto text-center text-secondary leading-relaxed">
+                <p>As a student of Computer Science, I walk the line between two worlds: the structured logic of backend development and the boundless narrative of data science. My quest is to build robust, scalable systems and to distill meaning from the digital ether. From the crucible of hackathons to the quiet contemplation of complex algorithms, I seek to turn abstract concepts into impactful realities.</p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="my-16 md:my-24">
+            <h3 class="text-3xl font-serif font-bold text-center mb-12 gradient-text">The Forge of Skills</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+                <!-- Skill Card -->
+                <div class="card p-6 rounded-lg text-center">
+                    <i class="fab fa-python text-4xl text-amber-400 mb-3"></i>
+                    <h4 class="font-semibold text-lg text-main">Python</h4>
+                </div>
+                <div class="card p-6 rounded-lg text-center">
+                    <i class="fab fa-java text-4xl text-red-500 mb-3"></i>
+                    <h4 class="font-semibold text-lg text-main">Java</h4>
+                </div>
+                <div class="card p-6 rounded-lg text-center">
+                    <i class="fas fa-database text-4xl text-emerald-500 mb-3"></i>
+                    <h4 class="font-semibold text-lg text-main">SQL</h4>
+                </div>
+                <div class="card p-6 rounded-lg text-center">
+                    <i class="fab fa-html5 text-4xl text-orange-500 mb-3"></i>
+                    <h4 class="font-semibold text-lg text-main">HTML/CSS</h4>
+                </div>
+                <div class="card p-6 rounded-lg text-center">
+                    <i class="fab fa-js-square text-4xl text-yellow-400 mb-3"></i>
+                    <h4 class="font-semibold text-lg text-main">JavaScript</h4>
+                </div>
+                <div class="card p-6 rounded-lg text-center">
+                    <i class="fas fa-leaf text-4xl text-green-600 mb-3"></i>
+                    <h4 class="font-semibold text-lg text-main">Django</h4>
+                </div>
+                 <div class="card p-6 rounded-lg text-center">
+                    <i class="fas fa-flask text-4xl text-slate-500 mb-3"></i>
+                    <h4 class="font-semibold text-lg text-main">Flask</h4>
+                </div>
+                <div class="card p-6 rounded-lg text-center">
+                    <i class="fas fa-brain text-4xl text-pink-500 mb-3"></i>
+                    <h4 class="font-semibold text-lg text-main">Pandas/NumPy</h4>
+                </div>
+                <div class="card p-6 rounded-lg text-center">
+                    <i class="fas fa-chart-bar text-4xl text-indigo-500 mb-3"></i>
+                    <h4 class="font-semibold text-lg text-main">Matplotlib</h4>
+                </div>
+                <div class="card p-6 rounded-lg text-center">
+                    <i class="fab fa-docker text-4xl text-sky-500 mb-3"></i>
+                    <h4 class="font-semibold text-lg text-main">Docker</h4>
+                </div>
+                 <div class="card p-6 rounded-lg text-center">
+                    <i class="fab fa-git-alt text-4xl text-orange-600 mb-3"></i>
+                    <h4 class="font-semibold text-lg text-main">Git/GitHub</h4>
+                </div>
+                 <div class="card p-6 rounded-lg text-center">
+                    <i class="fas fa-cogs text-4xl text-cyan-500 mb-3"></i>
+                    <h4 class="font-semibold text-lg text-main">Scikit-learn</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="my-16 md:my-24">
+            <h3 class="text-3xl font-serif font-bold text-center mb-8 gradient-text">A Gallery of Creations</h3>
+            <!-- Filter Buttons -->
+            <div id="project-filters" class="flex justify-center flex-wrap gap-2 md:gap-4 mb-12">
+                <button class="filter-btn active px-4 py-2 text-sm font-semibold rounded-full transition-colors" data-filter="all">All Creations</button>
+                <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full transition-colors" data-filter="development">Development</button>
+                <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full transition-colors" data-filter="data-science">Data Science</button>
+                <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full transition-colors" data-filter="ml">Machine Learning</button>
+            </div>
+
+            <div id="project-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="card rounded-lg overflow-hidden flex flex-col" data-category="development">
+                    <div class="p-6 flex-grow">
+                        <h4 class="font-bold text-xl mb-2 text-main">TourPass - Ticketing System</h4>
+                        <p class="text-secondary text-sm mb-4">A full-stack museum ticket booking system with secure user authentication, booking management, and payment gateway integration.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Django</span>
+                            <span class="bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">PostgreSQL</span>
+                            <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Bootstrap</span>
+                        </div>
+                    </div>
+                    <div class="p-6 card-footer flex justify-end space-x-4">
+                        <a href="https://github.com/tgsK07/TourPass" target="_blank" class="text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="card rounded-lg overflow-hidden flex flex-col" data-category="development data-science ml">
+                    <div class="p-6 flex-grow">
+                        <h4 class="font-bold text-xl mb-2 text-main">AI Resume Analyzer</h4>
+                        <p class="text-secondary text-sm mb-4">A Streamlit web app for AI-powered resume analysis using Google's Generative AI, providing matching probability, skill analysis, and optimization tips.</p>
+                         <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Streamlit</span>
+                            <span class="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Python</span>
+                             <span class="bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Gemma</span>
+                        </div>
+                    </div>
+                    <div class="p-6 card-footer flex justify-end space-x-4">
+                        <a href="https://github.com/tgsK07/AI-Resume-Analyzer" target="_blank" class="text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fab fa-github text-xl"></i></a>
+                        <a href="https://huggingface.co/spaces/Sonu-Kumar/AI-Resume-Analyzer" target="_blank" class="text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fas fa-external-link-alt text-xl"></i></a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="card rounded-lg overflow-hidden flex flex-col" data-category="development data-science ml">
+                    <div class="p-6 flex-grow">
+                        <h4 class="font-bold text-xl mb-2 text-main">Sentilytics - Sentiment Analysis</h4>
+                        <p class="text-secondary text-sm mb-4">A Chrome extension that scrapes YouTube comments for real-time sentiment analysis using DistilBERT, providing visual reports and AI-driven suggestions.</p>
+                         <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Chrome Ext</span>
+                            <span class="bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">DistilBERT</span>
+                            <span class="bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900 dark:text-fuchsia-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Llama3</span>
+                        </div>
+                    </div>
+                     <div class="p-6 card-footer flex justify-end space-x-4">
+                        <a href="#" class="text-slate-400 dark:text-slate-600 cursor-not-allowed"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                </div>
+                 <!-- Project Card 4 -->
+                <div class="card rounded-lg overflow-hidden flex flex-col" data-category="data-science">
+                    <div class="p-6 flex-grow">
+                        <h4 class="font-bold text-xl mb-2 text-main">Carbon Emission Impact Analysis</h4>
+                        <p class="text-secondary text-sm mb-4">Analyzed over 60 years of climate data to model the relationship between CO2 levels and global temperature, building a predictive linear regression model.</p>
+                         <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Data Analysis</span>
+                            <span class="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Pandas</span>
+                            <span class="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Scikit-learn</span>
+                        </div>
+                    </div>
+                    <div class="p-6 card-footer flex justify-end space-x-4">
+                        <a href="https://github.com/tgsK07/Carbon-Emission-Impact-Analysis" target="_blank" class="text-secondary hover:text-amber-500 dark:hover:text-yellow-300 transition-colors"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="my-16 md:my-24 text-center">
+             <h3 class="text-3xl font-serif font-bold text-center mb-8 gradient-text">Seek Audience</h3>
+             <p class="text-secondary mb-8 max-w-2xl mx-auto">If you have a quest, a query, or wish to collaborate on a future legend, send a missive.</p>
+             <a href="mailto:tgsonukumar07@gmail.com" class="contact-button font-bold py-3 px-8 rounded-full transition-all duration-300">
+                Send a Message
+             </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center p-6 footer-bg">
+        <p class="text-secondary text-sm">&copy; MMDXXIV Sonu Kumar. All Rights Reserved.</p>
+    </footer>
+
+   <script src="script.js"></script>
+</body>
+</html>
