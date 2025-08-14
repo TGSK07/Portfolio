@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonu Kumar - Data Scientist & Software Developer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter for body, Syne for display headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Three.js for 3D object -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        /* Custom styles for the dark theme design system */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Slightly darker charcoal for more contrast */
+            color: #E2E8F0; /* Light Gray Text */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* Using the 'Syne' font for large, impactful headings */
+        .font-display {
+            font-family: 'Syne', sans-serif;
+        }
+        
+        /* Muted blue accent color for the dark theme */
+        .accent-color {
+            color: #63B3ED; 
+        }
+        .bg-accent {
+            background-color: #63B3ED;
+        }
+        .border-accent {
+            border-color: #63B3ED;
+        }
+
+        /* Line height for readability (approx 1.6 ratio) */
+        p, li {
+            line-height: 1.6;
+        }
+
+        /* Style for the active filter button */
+        .filter-btn.active {
+            background-color: #63B3ED;
+            color: #1A202C;
+        }
+
+        /* Canvas for 3D background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place it behind all other content */
+        }
+
+        /* Main content container needs a z-index to be on top of the canvas */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            background-color: transparent;
+        }
+        
+        /* Add a subtle gradient to the hero section to ensure text readability over the 3D object */
+        .hero-gradient {
+             background: radial-gradient(ellipse at 50% 50%, rgba(17, 24, 39, 0.7) 0%, rgba(17, 24, 39, 1) 75%);
+        }
+
+        /* Subtle scrollbar styling for dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4A5568;
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #718096;
+        }
+
+        /* Pagination button styling */
+        .pagination-btn {
+            cursor: pointer;
+        }
+        .pagination-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body class="w-full">
+
+    <!-- This canvas will hold the 3D animation -->
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="content-wrapper">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
+
+            <!-- Header / Navigation -->
+            <header class="py-8 flex justify-between items-center">
+                <a href="#" class="font-display text-2xl font-bold tracking-tighter text-white">Sonu.</a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#projects" class="text-gray-400 hover:text-white transition-colors duration-300">Projects</a>
+                    <a href="#skills" class="text-gray-400 hover:text-white transition-colors duration-300">Skills</a>
+                    <a href="#contact" class="bg-accent text-gray-900 py-2 px-4 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300">Contact</a>
+                </nav>
+                <div class="md:hidden">
+                     <a href="#contact" class="bg-accent text-gray-900 py-2 px-4 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300">Menu</a>
+                </div>
+            </header>
+
+            <!-- Hero Section -->
+            <main class="hero-gradient py-16 md:py-32 text-center md:text-left min-h-screen flex flex-col justify-center">
+                <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter leading-tight text-white">
+                    Data Scientist &<br>Software Developer
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto md:mx-0 text-lg text-gray-400">
+                    I build intelligent applications and uncover insights from data. Currently pursuing B.Tech in CSE, I'm passionate about leveraging technology to solve real-world problems.
+                </p>
+                <!-- Call to Action Buttons -->
+                <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="#contact" class="bg-accent text-gray-900 py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300">Get in Touch</a>
+                    <a href="./Resume_DS.pdf" download="Sonu_Kumar_Resume.pdf" class="border border-gray-600 text-gray-200 py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 hover:border-gray-500 transition-colors duration-300">Download Resume</a>
+                    <a href="https://github.com/tgsonu" target="_blank" class="bg-gray-800 text-gray-200 py-3 px-6 rounded-lg font-semibold hover:bg-gray-700 transition-colors duration-300">View GitHub</a>
+                </div>
+            </main>
+
+            <!-- Projects Section -->
+            <section id="projects" class="py-24 bg-[#111827]">
+                <h2 class="font-display text-4xl font-bold tracking-tighter text-center text-white">Selected Projects</h2>
+                <p class="text-center mt-2 text-gray-400 max-w-xl mx-auto">Here are a few projects I've worked on. Use the filters to see projects by category.</p>
+                
+                <!-- Filter Buttons -->
+                <div id="filter-container" class="mt-12 flex flex-wrap justify-center gap-2 md:gap-4">
+                    <button class="filter-btn active bg-gray-700 text-gray-200 py-2 px-4 rounded-full font-semibold transition-colors duration-300" data-filter="all">All</button>
+                    <button class="filter-btn bg-gray-700 text-gray-200 py-2 px-4 rounded-full font-semibold transition-colors duration-300" data-filter="ds">Data Science</button>
+                    <button class="filter-btn bg-gray-700 text-gray-200 py-2 px-4 rounded-full font-semibold transition-colors duration-300" data-filter="da">Data Analysis</button>
+                    <button class="filter-btn bg-gray-700 text-gray-200 py-2 px-4 rounded-full font-semibold transition-colors duration-300" data-filter="dev">Development</button>
+                    <button class="filter-btn bg-gray-700 text-gray-200 py-2 px-4 rounded-full font-semibold transition-colors duration-300" data-filter="ml">Machine Learning</button>
+                </div>
+
+                <div id="project-grid" class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    
+                    <!-- Project 1: Sentilytics -->
+                    <div class="project-card bg-gray-800 p-6 rounded-2xl border border-gray-700 shadow-sm hover:shadow-2xl hover:border-gray-600 transition-all duration-300" data-category="ds ml dev">
+                        <img src="https://placehold.co/600x400/2D3748/E2E8F0?text=Sentilytics+UI" alt="Sentilytics Chrome Extension UI" class="rounded-lg w-full h-auto object-cover mb-6">
+                        <h3 class="font-display text-2xl font-bold text-white">Sentilytics - Sentiment Analysis Extension</h3>
+                        <p class="mt-2 text-gray-400">A Chrome extension that scrapes and analyzes YouTube comments in real-time using DistilBERT, providing sentiment classification and AI-driven suggestions with Llama3.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">NLP</span>
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">DistilBERT</span>
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Chrome Extension</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: TourPass -->
+                    <div class="project-card bg-gray-800 p-6 rounded-2xl border border-gray-700 shadow-sm hover:shadow-2xl hover:border-gray-600 transition-all duration-300" data-category="dev">
+                        <img src="https://placehold.co/600x400/2D3748/E2E8F0?text=TourPass+UI" alt="TourPass Ticketing System UI" class="rounded-lg w-full h-auto object-cover mb-6">
+                        <h3 class="font-display text-2xl font-bold text-white">TourPass - Ticketing System</h3>
+                        <p class="mt-2 text-gray-400">A full-stack monument and museum ticketing system with secure user authentication (OAuth2), booking management, and integrated Razorpay payment gateway.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Django</span>
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">PostgreSQL</span>
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Development</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: AI Resume Analyzer -->
+                    <div class="project-card bg-gray-800 p-6 rounded-2xl border border-gray-700 shadow-sm hover:shadow-2xl hover:border-gray-600 transition-all duration-300" data-category="ds ml dev">
+                        <img src="https://placehold.co/600x400/2D3748/E2E8F0?text=AI+Resume+Analyzer" alt="AI Resume Analyzer UI" class="rounded-lg w-full h-auto object-cover mb-6">
+                        <h3 class="font-display text-2xl font-bold text-white">AI Resume Analyzer</h3>
+                        <p class="mt-2 text-gray-400">A Streamlit web app that uses Google's Generative AI to analyze resumes, providing a matching probability, identifying missing skills, and offering optimization tips.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Streamlit</span>
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Generative AI</span>
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Carbon Emission Analysis -->
+                    <div class="project-card bg-gray-800 p-6 rounded-2xl border border-gray-700 shadow-sm hover:shadow-2xl hover:border-gray-600 transition-all duration-300" data-category="da ds">
+                        <img src="https://placehold.co/600x400/2D3748/E2E8F0?text=CO2+vs+Temp+Graph" alt="Carbon Emission Analysis Graph" class="rounded-lg w-full h-auto object-cover mb-6">
+                        <h3 class="font-display text-2xl font-bold text-white">Carbon Emission Impact Analysis</h3>
+                        <p class="mt-2 text-gray-400">Analyzed 60+ years of climate data to model the relationship between CO₂ levels and temperature anomalies, achieving an R² of 0.91 with a Linear Regression model.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Data Analysis</span>
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Scikit-learn</span>
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Pandas</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Bright Motor Co. Analysis -->
+                    <div class="project-card bg-gray-800 p-6 rounded-2xl border border-gray-700 shadow-sm hover:shadow-2xl hover:border-gray-600 transition-all duration-300" data-category="da ml">
+                        <img src="https://placehold.co/600x400/2D3748/E2E8F0?text=Salary+Trends" alt="Bright Motor Company Analysis" class="rounded-lg w-full h-auto object-cover mb-6">
+                        <h3 class="font-display text-2xl font-bold text-white">Bright Motor Co. Salary Prediction</h3>
+                        <p class="mt-2 text-gray-400">Conducted EDA to find salary trends and built a Ridge Regression model to predict employee salaries, achieving a normalized RMSE of 0.121.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">EDA</span>
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Ridge Regression</span>
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Data Visualization</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Daily Expenses App -->
+                    <div class="project-card bg-gray-800 p-6 rounded-2xl border border-gray-700 shadow-sm hover:shadow-2xl hover:border-gray-600 transition-all duration-300" data-category="dev">
+                        <img src="https://placehold.co/600x400/2D3748/E2E8F0?text=Expenses+App+UI" alt="Daily Expenses Desktop App" class="rounded-lg w-full h-auto object-cover mb-6">
+                        <h3 class="font-display text-2xl font-bold text-white">Daily Expenses Desktop App</h3>
+                        <p class="mt-2 text-gray-400">Built a desktop-based expense tracker using Tkinter GUI to log daily spending. Implemented CSV-based data storage and Pandas for dynamic record management.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Tkinter</span>
+                            <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">Pandas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination Controls -->
+                <div id="pagination-container" class="mt-16 flex justify-center items-center gap-4 text-white">
+                    <button id="prev-btn" class="pagination-btn bg-gray-700 hover:bg-gray-600 py-2 px-4 rounded-lg font-semibold transition-colors duration-300">&larr; Previous</button>
+                    <span id="page-info">Page 1 of 2</span>
+                    <button id="next-btn" class="pagination-btn bg-gray-700 hover:bg-gray-600 py-2 px-4 rounded-lg font-semibold transition-colors duration-300">Next &rarr;</button>
+                </div>
+
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="py-24 bg-[#111827]">
+                <h2 class="font-display text-4xl font-bold tracking-tighter text-center text-white">My Toolkit</h2>
+                <p class="text-center mt-2 text-gray-400 max-w-xl mx-auto">A collection of the primary technologies and concepts I'm proficient with.</p>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Category: Languages -->
+                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i data-lucide="code-2" class="w-8 h-8 accent-color"></i>
+                            <h3 class="font-display text-xl font-bold text-white">Languages</h3>
+                        </div>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>C</li>
+                            <li>SQL</li>
+                            <li>HTML / CSS / JS</li>
+                        </ul>
+                    </div>
+                    <!-- Category: Frameworks & Libraries -->
+                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i data-lucide="layers" class="w-8 h-8 accent-color"></i>
+                            <h3 class="font-display text-xl font-bold text-white">Frameworks & Libs</h3>
+                        </div>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>Django & Flask</li>
+                            <li>Pandas & NumPy</li>
+                            <li>Scikit-learn</li>
+                            <li>Matplotlib & Seaborn</li>
+                            <li>Selenium & BeautifulSoup</li>
+                        </ul>
+                    </div>
+                    <!-- Category: Tools & Platforms -->
+                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i data-lucide="server" class="w-8 h-8 accent-color"></i>
+                            <h3 class="font-display text-xl font-bold text-white">Tools & Platforms</h3>
+                        </div>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>Git & GitHub</li>
+                            <li>Docker</li>
+                            <li>Jupyter Notebook</li>
+                            <li>Power BI</li>
+                            <li>Google Colab</li>
+                        </ul>
+                    </div>
+                    <!-- Category: Concepts -->
+                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i data-lucide="brain-circuit" class="w-8 h-8 accent-color"></i>
+                            <h3 class="font-display text-xl font-bold text-white">Concepts</h3>
+                        </div>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>Data Cleaning & EDA</li>
+                            <li>Feature Engineering</li>
+                            <li>Model Evaluation</li>
+                            <li>Supervised Learning</li>
+                            <li>Unsupervised Learning</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="py-24 bg-[#111827]">
+                <div class="text-center">
+                    <h2 class="font-display text-4xl font-bold tracking-tighter text-white">Let's Connect</h2>
+                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">I'm currently seeking new opportunities and am open to collaborations. Feel free to send me a message!</p>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="mt-12 max-w-xl mx-auto">
+                    <form id="contact-form" action="https://formspree.io/f/mvojozdr" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                            <input type="text" name="name" id="name" required class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                            <input type="email" name="email" id="email" required class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                            <textarea name="message" id="message" rows="4" required class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-accent text-gray-900 py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                    <p id="form-status" class="mt-4 text-center"></p>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="py-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 bg-[#111827]">
+                <p class="text-gray-500 text-sm">&copy; 2024 Sonu Kumar. All rights reserved.</p>
+                <div class="flex items-center space-x-6">
+                    <a href="https://github.com/tgsonu" target="_blank" class="text-gray-500 hover:accent-color transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sonu-kumar-a52623283/" target="_blank" class="text-gray-500 hover:accent-color transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Project Filtering & Pagination ---
+            const filterContainer = document.getElementById('filter-container');
+            const projectGrid = document.getElementById('project-grid');
+            const allProjectCards = Array.from(projectGrid.querySelectorAll('.project-card'));
+            const paginationContainer = document.getElementById('pagination-container');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const pageInfo = document.getElementById('page-info');
+
+            const projectsPerPage = 4;
+            let currentPage = 1;
+            let currentFilter = 'all';
+
+            function applyFiltersAndPagination() {
+                // Filter projects
+                const filteredCards = allProjectCards.filter(card => {
+                    const categories = card.getAttribute('data-category');
+                    return currentFilter === 'all' || categories.includes(currentFilter);
+                });
+
+                // Pagination calculations
+                const totalPages = Math.ceil(filteredCards.length / projectsPerPage);
+                currentPage = Math.min(currentPage, totalPages) || 1;
+
+                // Clear grid and append current page's projects
+                projectGrid.innerHTML = '';
+                const startIndex = (currentPage - 1) * projectsPerPage;
+                const endIndex = startIndex + projectsPerPage;
+                const pageCards = filteredCards.slice(startIndex, endIndex);
+                pageCards.forEach(card => projectGrid.appendChild(card));
+
+                // Update pagination controls
+                pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages;
+                paginationContainer.style.display = totalPages > 1 ? 'flex' : 'none';
+            }
+
+            // Event Listeners
+            if (filterContainer) {
+                filterContainer.addEventListener('click', (event) => {
+                    if (event.target.classList.contains('filter-btn')) {
+                        filterContainer.querySelector('.active').classList.remove('active');
+                        event.target.classList.add('active');
+                        currentFilter = event.target.getAttribute('data-filter');
+                        currentPage = 1; // Reset to first page on filter change
+                        applyFiltersAndPagination();
+                    }
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    applyFiltersAndPagination();
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                const totalPages = Math.ceil(allProjectCards.filter(card => currentFilter === 'all' || card.getAttribute('data-category').includes(currentFilter)).length / projectsPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    applyFiltersAndPagination();
+                }
+            });
+
+            // Initial setup
+            applyFiltersAndPagination();
+
+            // --- Contact Form Submission ---
+            const form = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+
+            async function handleSubmit(event) {
+                event.preventDefault();
+                const data = new FormData(event.target);
+                try {
+                    const response = await fetch(event.target.action, {
+                        method: form.method,
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        formStatus.textContent = "Thanks for your submission!";
+                        formStatus.style.color = 'lightgreen';
+                        form.reset();
+                    } else {
+                        const responseData = await response.json();
+                        if (Object.hasOwn(responseData, 'errors')) {
+                            formStatus.textContent = responseData["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            formStatus.textContent = "Oops! There was a problem submitting your form";
+                        }
+                        formStatus.style.color = 'red';
+                    }
+                } catch (error) {
+                    formStatus.textContent = "Oops! There was a problem submitting your form";
+                    formStatus.style.color = 'red';
+                }
+            }
+            form.addEventListener("submit", handleSubmit);
+        });
+
+        // --- Three.js Cinematic Background ---
+        window.onload = function() {
+            const canvas = document.getElementById('bg-canvas');
+            if (!canvas) return;
+
+            // Scene setup
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // 3D Object - Increased size
+            const geometry = new THREE.IcosahedronGeometry(1.8, 1); // Was 1.5
+            const material = new THREE.MeshStandardMaterial({
+                color: 0x63B3ED, // Accent color
+                wireframe: true,
+            });
+            const shape = new THREE.Mesh(geometry, material);
+            scene.add(shape);
+
+            // Lighting - Increased intensity
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.3); // Was 0.2
+            scene.add(ambientLight);
+            const pointLight = new THREE.PointLight(0xffffff, 1.2); // Was 0.8
+            pointLight.position.set(5, 5, 5);
+            scene.add(pointLight);
+
+            camera.position.z = 5;
+
+            // Mouse interaction variables
+            let mouseX = 0;
+            let mouseY = 0;
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+                mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+            });
+
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+
+                // Gentle rotation - slowed down
+                shape.rotation.x += 0.0005; // Was 0.001
+                shape.rotation.y += 0.0005; // Was 0.001
+
+                // Mouse follow effect
+                const targetX = mouseX * 0.5;
+                const targetY = mouseY * 0.5;
+                shape.rotation.y += (targetX - shape.rotation.y) * 0.05;
+                shape.rotation.x += (targetY - shape.rotation.x) * 0.05;
+
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // Handle window resizing
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            });
+        }
+    </script>
+
+</body>
+</html>
