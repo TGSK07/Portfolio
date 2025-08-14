@@ -1,15 +1,16 @@
 {
   "version": 2,
+  "name": "sentilytics-frontend",
+  "public": true,
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "build" }
+      "src": "*.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/",
       "dest": "/home.html"
     }
   ]
